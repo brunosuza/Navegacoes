@@ -1,12 +1,16 @@
-import React from 'react';
-import { createAppContainer, createDrawerNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import Home from './pages/Home';
-import Profile from './pages/Profile';
+import Login from '../src/pages/Login';
+import Profile from '../src/pages/Drawer';
 
-const myDrawer = createDrawerNavigator ({
-    Home: Home,
-    Profile: Profile
-});
+const mainNavigation = createAppContainer(createSwitchNavigator(
+    {
+        Login,
+        Profile
+    },
+    {
+      initialRouteName: 'Login',
+    }
+  ));
 
-export default createAppContainer(myDrawer);
+export default createAppContainer(mainNavigation);

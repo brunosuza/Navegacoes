@@ -63,7 +63,7 @@ function MyTabs() {
     </Tab.Navigator>
   );
 }
-export default function ButtonTop() {
+export default function Message() {
   return (
       <>
         <NavigationContainer>

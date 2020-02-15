@@ -78,7 +78,7 @@ function MyTabs() {
     );
   }
 
-  export default class ButtonTab extends Component {
+  export default class Settings extends Component {
     render () {
         return (
             <>

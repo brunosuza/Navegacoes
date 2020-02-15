@@ -1,1 +1,7 @@
-const orange = '#FFDBA8';
+export default class colors {
+
+    static color = {
+        orange: '#FFDBA8'
+    }
+}
+
