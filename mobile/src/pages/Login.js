@@ -11,8 +11,8 @@ export default class Login extends Component {
 
     render() {
         return (
-            <>
-            <View style={styles.container}>
+            <>  
+            <View style={styles.container} source={require('../pages/Images/planoDeFundo.png')} >
                 <Text style={styles.loginText}>Login</Text>
                 <TouchableOpacity 
                     style={styles.productButton}
@@ -21,7 +21,7 @@ export default class Login extends Component {
                     }}>
                 <Text style={styles.accessButtonText}>Acessar</Text>
             </TouchableOpacity>
-            </View>
+            </View>           
             </>
         );
     }
@@ -30,13 +30,14 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FF8148',
+       // backgroundColor: '#FF8148',
         alignItems: 'center', 
         justifyContent: 'center',
         fontSize: 16,
         color: '#fff',
         fontWeight: 'bold'
     },
+    
 
 
     productButton: {

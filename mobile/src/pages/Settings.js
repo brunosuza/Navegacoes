@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+
 
 const orange = '#FF8148';
 const white = '#fff'
 
-function Feed() {
+function FeedScreen() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Feed!</Text>
+        <Text>Sound!</Text>
       </View>
     );
 }
@@ -23,12 +26,20 @@ function Account() {
     );
 }
 
-function Notifications() {
+function AlarmScreen() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Notifications!</Text>
+        <Text>Alarm!</Text>
       </View>
     );
+}
+
+function clockScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Clock!</Text>
+    </View>
+  );
 }
 
 const Tab = createBottomTabNavigator();
@@ -36,35 +47,44 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
     return (
       <Tab.Navigator
-        initialRouteName="Feed"
+        initialRouteName="FeedScreen"
         tabBarOptions={{
-            activeTintColor: orange,
+            activeTintColor: 'rgb(239, 191, 143)',
             indicatorStyle: { backgroundColor: orange },
             labelStyle: { fontSize: 12 },
             style: { backgroundColor: white },
         }}
       >
         <Tab.Screen
-          name="Feed"
-          component={Feed}
+          name="FeedScreen"
+          component={FeedScreen}
           options={{
-            tabBarLabel: 'Home',
-            tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="home" color={color} size={size} />
-              ),
+            tabBarLabel: 'Sound',
+            tabBarIcon: ({ color, size}) => <FontAwesome5 name='microphone' size={24} color={color}  />
           }}
         />
         <Tab.Screen
-          name="Notifications"
-          component={Notifications}
+          name="AlarmScreen"
+          component={AlarmScreen}
           options={{
-            tabBarLabel: 'Updates',
+            tabBarLabel: 'Alarm',
             tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons name="bell" color={color} size={size} />
               ),
           }}
         />
         <Tab.Screen
+          name="clockScreen"
+          component={clockScreen}
+          options={{
+            tabBarLabel: 'Clock',
+            tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="clock" color={color} size={size} />
+              ),
+          }}
+        />
+       
+         <Tab.Screen
           name="Account"
           component={Account}
           options={{
@@ -89,3 +109,20 @@ function MyTabs() {
         );
         }
 }
+
+/*const TabButtonNavigator = createBottomTabNavigator(
+  {
+    FeedScreen: {
+      screen: FeedScreen,
+      navigationOptions: {
+        tabBarIcon: () => <FontAwesome5 name='book-medical' size={24} color='#CDCCE' />
+      } 
+    }
+  },{  
+    tabBarOptions: {
+      showLabel: false
+    }
+  }
+);
+
+export default createAppContainer(TabButtonNavigator); */
